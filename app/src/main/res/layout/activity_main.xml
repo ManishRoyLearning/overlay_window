@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_service"
+        android:layout_width="312dp"
+        android:layout_height="67.48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/start_service"
+        android:text="Start service"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="28.63sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/stop_service"
+        android:layout_width="312dp"
+        android:layout_height="67.48dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/stop_service"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="28.63dp"
+        android:textStyle="bold"
+        android:text="Stop Service" />
+
+
+</LinearLayout>
