@@ -12,7 +12,9 @@
         android:layout_width="312dp"
         android:layout_height="67.48dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="28dp"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/start_service"
         android:text="Start service"
         android:textAllCaps="false"
@@ -26,10 +28,10 @@
         android:layout_height="67.48dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/stop_service"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:textSize="28.63dp"
+        android:textSize="28.63sp"
         android:textStyle="bold"
         android:text="Stop Service" />
 
