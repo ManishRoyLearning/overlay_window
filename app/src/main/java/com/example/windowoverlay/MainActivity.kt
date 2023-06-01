@@ -46,40 +46,40 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun isServiceRunning(): Boolean{
-        var manger = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-
-        for (service in manger.getRunningServices(Int.MAX_VALUE)){
-
-            if (OverlayService::class.java.name == service.service.className)
-                return false
-        }
-        return false
-    }
-
-    private fun requestFloatingWindowPermission() {
-
-        val builder = AlertDialog.Builder(this)
-        builder.setCancelable(true)
-        builder.setTitle("Screen Overlay Permission Needed")
-        builder.setMessage("Enable 'Display over the App' from settings")
-        builder.setPositiveButton("Open Settings", DialogInterface.OnClickListener { dialog, which ->
-
-            val intent = Intent(
-                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                Uri.parse("package:$packageName")
-            )
-            startActivityForResult(intent, RESULT_OK)
-
-        })
-        dialog = builder.create()
-        dialog.show()
-    }
-
-    private fun checkOverlayPermission(): Boolean{
-        return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
-            Settings.canDrawOverlays(this)
-        }
-        else return true
-    }
+//    private fun isServiceRunning(): Boolean{
+//        var manger = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+//
+//        for (service in manger.getRunningServices(Int.MAX_VALUE)){
+//
+//            if (OverlayService::class.java.name == service.service.className)
+//                return false
+//        }
+//        return false
+//    }
+//
+//    private fun requestFloatingWindowPermission() {
+//
+//        val builder = AlertDialog.Builder(this)
+//        builder.setCancelable(true)
+//        builder.setTitle("Screen Overlay Permission Needed")
+//        builder.setMessage("Enable 'Display over the App' from settings")
+//        builder.setPositiveButton("Open Settings", DialogInterface.OnClickListener { dialog, which ->
+//
+//            val intent = Intent(
+//                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+//                Uri.parse("package:$packageName")
+//            )
+//            startActivityForResult(intent, RESULT_OK)
+//
+//        })
+//        dialog = builder.create()
+//        dialog.show()
+//    }
+//
+//    private fun checkOverlayPermission(): Boolean{
+//        return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+//            Settings.canDrawOverlays(this)
+//        }
+//        else return true
+//    }
 }
