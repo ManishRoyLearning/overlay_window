@@ -18,12 +18,12 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class OverlayService : Service(), OnClickListener{
-    private lateinit var crossButton: ImageButton
-    private lateinit var tikButton: ImageButton
-    private lateinit var hiddenView: ConstraintLayout
-    private lateinit var cardView: CardView
-    private lateinit var icon: ImageView
-    private lateinit var processingIcon: TextView
+//    private lateinit var crossButton: ImageButton
+//    private lateinit var tikButton: ImageButton
+//    private lateinit var hiddenView: ConstraintLayout
+//    private lateinit var cardView: CardView
+//    private lateinit var icon: ImageView
+//    private lateinit var processingIcon: TextView
     private var moving = false
     private var initialtouchY = 0.0f
     private var initialTouchX = 0.0f
@@ -47,14 +47,16 @@ class OverlayService : Service(), OnClickListener{
 
         val inflater = baseContext.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-        floatView = inflater.inflate(R.layout.floating_window,null) as ViewGroup
+        floatView = inflater.inflate(R.layout.floating_window2,null) as ViewGroup
 
-        cardView = floatView.findViewById(R.id.base_cardview)
-        crossButton = floatView.findViewById(R.id.cross_button)
-        tikButton = floatView.findViewById(R.id.tik_button)
-        hiddenView = floatView.findViewById(R.id.hidden_view)
-        icon = floatView.findViewById(R.id.icon)
-        processingIcon = floatView.findViewById(R.id.heading)
+//        cardView = floatView.findViewById(R.id.base_cardview)
+//        crossButton = floatView.findViewById(R.id.cross_button)
+//        tikButton = floatView.findViewById(R.id.tik_button)
+//        hiddenView = floatView.findViewById(R.id.hidden_view)
+//        icon = floatView.findViewById(R.id.icon)
+//        processingIcon = floatView.findViewById(R.id.heading)
+
+
 
         val layoutFlag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -77,40 +79,40 @@ class OverlayService : Service(), OnClickListener{
 
         windowManager.addView(floatView,params)
 
-        icon.setOnClickListener {
-
-            if (hiddenView.visibility == View.VISIBLE) {
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    TransitionManager.beginDelayedTransition(cardView, AutoTransition())
-                }
-                hiddenView.visibility = View.GONE
-            } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    TransitionManager.beginDelayedTransition(cardView, AutoTransition())
-                }
-                hiddenView.visibility = View.VISIBLE
-                processingIcon.visibility = View.VISIBLE
-            }
-        }
-
-        crossButton.setOnClickListener {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                TransitionManager.beginDelayedTransition(cardView, AutoTransition())
-            }
-            hiddenView.visibility = View.GONE
-            processingIcon.visibility = View.GONE
-        }
-
-        tikButton.setOnClickListener {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                TransitionManager.beginDelayedTransition(cardView, AutoTransition())
-            }
-            hiddenView.visibility = View.GONE
-            processingIcon.visibility = View.GONE
-        }
+//        icon.setOnClickListener {
+//
+//            if (hiddenView.visibility == View.VISIBLE) {
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                    TransitionManager.beginDelayedTransition(cardView, AutoTransition())
+//                }
+//                hiddenView.visibility = View.GONE
+//            } else {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                    TransitionManager.beginDelayedTransition(cardView, AutoTransition())
+//                }
+//                hiddenView.visibility = View.VISIBLE
+//                processingIcon.visibility = View.VISIBLE
+//            }
+//        }
+//
+//        crossButton.setOnClickListener {
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                TransitionManager.beginDelayedTransition(cardView, AutoTransition())
+//            }
+//            hiddenView.visibility = View.GONE
+//            processingIcon.visibility = View.GONE
+//        }
+//
+//        tikButton.setOnClickListener {
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                TransitionManager.beginDelayedTransition(cardView, AutoTransition())
+//            }
+//            hiddenView.visibility = View.GONE
+//            processingIcon.visibility = View.GONE
+//        }
 
         floatView.setOnTouchListener(object : View.OnTouchListener {
 
@@ -131,7 +133,7 @@ class OverlayService : Service(), OnClickListener{
                         windowManager.updateViewLayout(floatView,params)
                     }
                 }
-                return true
+                return false
             }
         })
     }
